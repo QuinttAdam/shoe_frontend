@@ -1,12 +1,13 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import Login from './components/Login.vue';
+import { ref, onMounted } from 'vue';
 
 
 </script>
 
 <template>
-  <Login />
+  <RouterLink to="/">Login</RouterLink>
+  <RouterLink to="/orders">Orders</RouterLink>
+  <router-view></router-view>
   APP
 </template>
 
