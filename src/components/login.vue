@@ -43,7 +43,7 @@ const login = async () => {
 </script>
 
 <template>
-  <div>
+  <div class="bg-orange-700">
     <h1>Login</h1>
 
     <form @submit.prevent="login">
