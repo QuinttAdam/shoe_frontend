@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import Login from './components/login.vue';
+import Login from './components/Login.vue';
 
 
 </script>
