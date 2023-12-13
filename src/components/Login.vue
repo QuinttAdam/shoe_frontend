@@ -43,23 +43,25 @@ const login = async () => {
 </script>
 
 <template>
-  <div class="bg-orange-700">
-    <h1>Login</h1>
+  <div class="flex flex-col justify-center items-center h-screen">
+    <h1 class="text-lime-400 font-bold text-2xl mb-4">Login</h1>
 
-    <form @submit.prevent="login">
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required />
+    <form @submit.prevent="login" class="w-96">
+      <div class="flex flex-col mb-4">
+        <label for="email" class="text-left">Email</label>
+        <input type="email" id="email" v-model="email" required class="border border-gray-300 p-2" />
       </div>
 
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" required />
+      <div class="flex flex-col mb-4">
+        <label for="password" class="text-left">Password</label>
+        <input type="password" id="password" v-model="password" required class="border border-gray-300 p-2" />
       </div>
 
       <div v-if="error" class="error">{{ error }}</div>
 
-      <button type="submit">Login</button>
+      <div class="flex justify-center">
+        <button type="submit" class="bg-lime-400 text-white px-4 py-2 rounded" :style="{ width: 'calc(100% - 4px)' }">Login</button>
+      </div>
     </form>
   </div>
 </template>
