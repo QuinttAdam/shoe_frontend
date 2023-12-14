@@ -33,9 +33,9 @@ const getOrders = async () => {
   <h2 class="text-lime-400 text-2xl font-bold mb-4 ml-20 p-4">ORDERS</h2>
     <div class="max-w-screen-md ml-20 p-4 flex flex-wrap">
     <div v-if="error" class="text-red-500 mb-4">{{ error }}</div>
-    <div v-for="order in orders" :key="order._id">
+    <RouterLink v-for="order in orders" :key="order._id" :to="`/details/${order._id}`">
       <Orders :order="order"/>
-    </div>
+    </RouterLink>
   </div>
   </template>
   
