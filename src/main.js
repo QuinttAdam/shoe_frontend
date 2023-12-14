@@ -4,7 +4,7 @@ import App from './App.vue'
 
 //import components
 import Login from './pages/LoginPage.vue'
-import Orders from './components/Orders.vue'
+import Orders from './pages/OrdersPage.vue'
 
 //import vue router
 import * as VueRouter from 'vue-router'
