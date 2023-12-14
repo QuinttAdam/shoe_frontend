@@ -43,9 +43,6 @@ const login = async () => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center h-screen">
-    <h1 class="text-lime-400 font-bold text-2xl mb-4">Login</h1>
-
     <form @submit.prevent="login" class="w-96">
       <div class="flex flex-col mb-4">
         <label for="email" class="text-left">Email</label>
@@ -63,7 +60,6 @@ const login = async () => {
         <button type="submit" class="bg-lime-400 text-white px-4 py-2 rounded" :style="{ width: 'calc(100% - 4px)' }">Login</button>
       </div>
     </form>
-  </div>
 </template>
 
 <style scoped>

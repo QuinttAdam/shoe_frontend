@@ -3,7 +3,7 @@ import './style.css'
 import App from './App.vue'
 
 //import components
-import Login from './components/Login.vue'
+import Login from './pages/LoginPage.vue'
 import Orders from './components/Orders.vue'
 
 //import vue router

@@ -8,7 +8,6 @@ import { ref, onMounted } from 'vue';
   <RouterLink to="/">Login</RouterLink>
   <RouterLink to="/orders">Orders</RouterLink>
   <router-view></router-view>
-  APP
 </template>
 
 <style scoped>
