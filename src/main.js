@@ -5,13 +5,15 @@ import App from './App.vue'
 //import components
 import Login from './pages/LoginPage.vue'
 import Orders from './pages/OrdersPage.vue'
+import Details from './pages/DetailsPage.vue'
 
 //import vue router
 import * as VueRouter from 'vue-router'
 
 const routes = [
   { path: '/', component: Login },
-  { path: '/orders', component: Orders }
+  { path: '/orders', component: Orders },
+  { path: '/details/:id', component: Details },
 ]
 
 const router = VueRouter.createRouter({
