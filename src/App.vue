@@ -1,11 +1,9 @@
 <script setup>
-
+  import Nav from './components/Nav.vue';
 </script>
 
 <template>
-  <RouterLink to="/">Login</RouterLink>
-  <RouterLink to="/orders">Orders</RouterLink>
-  <RouterLink to="/change-password">Change Password</RouterLink>
+  <Nav />
   <router-view></router-view>
 </template>
 
