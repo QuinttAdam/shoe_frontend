@@ -5,8 +5,9 @@ import Details from '../components/Details.vue';
 </script>
 
 <template>
-    
-    <Details />
+    <div class="m-10">
+        <Details />
+    </div>
  
 </template>
 

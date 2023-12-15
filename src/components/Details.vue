@@ -36,63 +36,76 @@ const getOrderById = async () => {
 }
 };
 </script>
+  
+  <template>
+  <div class="border-4 border-lime-400 bg-lime-100 pt-10 pb-10">
+  
+    <h2 class="text-lime-400 text-xl font-bold mb-4 ml-12">Ordernumber: {{ order._id }}</h2>
 
-<template>
-    <div>
-      <h2>ORDERS</h2>
-      <div v-if="error" class="error">{{ error }}</div>
-        <div>
-          <h4>Inside Details:</h4>
-          <div>Color: {{ order.inside_color }}</div>
-          <div>Material: {{ order.inside_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Laces Details:</h4>
-          <div>Color: {{ order.laces_color }}</div>
-          <div>Material: {{ order.laces_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Outside 1 Details:</h4>
-          <div>Color: {{ order.outside_1_color }}</div>
-          <div>Material: {{ order.outside_1_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Outside 2 Details:</h4>
-          <div>Color: {{ order.outside_2_color }}</div>
-          <div>Material: {{ order.outside_2_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Outside 3 Details:</h4>
-          <div>Color: {{ order.outside_3_color }}</div>
-          <div>Material: {{ order.outside_3_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Sole Bottom Details:</h4>
-          <div>Color: {{ order.sole_bottom_color }}</div>
-          <div>Material: {{ order.sole_bottom_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Sole Top Details:</h4>
-          <div>Color: {{ order.sole_top_color }}</div>
-          <div>Material: {{ order.sole_top_material }}</div>
-        </div>
-  
-        <div>
-          <h4>Additional Details:</h4>
-          <div>Price: {{ order.price }}</div>
-          <div>Size: {{ order.size }}</div>
-          <div>Status: {{ order.status }}</div>
-          <div>User: {{ order.user }}</div>
-        </div>
-      </div>
-  </template>
-  
+    <div v-if="error" class="w-full p-4 mb-4">{{ error }}</div>
+
+    <div class="flex flex-wrap justify-between mx-20">
+
+    <!-- Inside Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Inside Details:</h4>
+      <div>Color: {{ order.inside_color }}</div>
+      <div>Material: {{ order.inside_material }}</div>
+    </div>
+
+    <!-- Laces Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Laces Details:</h4>
+      <div>Color: {{ order.laces_color }}</div>
+      <div>Material: {{ order.laces_material }}</div>
+    </div>
+
+    <!-- Outside 1 Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Outside 1 Details:</h4>
+      <div>Color: {{ order.outside_1_color }}</div>
+      <div>Material: {{ order.outside_1_material }}</div>
+    </div>
+
+    <!-- Outside 2 Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Outside 2 Details:</h4>
+      <div>Color: {{ order.outside_2_color }}</div>
+      <div>Material: {{ order.outside_2_material }}</div>
+    </div>
+
+    <!-- Outside 3 Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Outside 3 Details:</h4>
+      <div>Color: {{ order.outside_3_color }}</div>
+      <div>Material: {{ order.outside_3_material }}</div>
+    </div>
+
+    <!-- Sole Bottom Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Sole Bottom Details:</h4>
+      <div>Color: {{ order.sole_bottom_color }}</div>
+      <div>Material: {{ order.sole_bottom_material }}</div>
+    </div>
+
+    <!-- Sole Top Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Sole Top Details:</h4>
+      <div>Color: {{ order.sole_top_color }}</div>
+      <div>Material: {{ order.sole_top_material }}</div>
+    </div>
+
+    <!-- Additional Details Section -->
+    <div class="w-80 p-4">
+      <h4 class="font-bold">Additional Details:</h4>
+      <div>Price: {{ order.price }}</div>
+      <div>Size: {{ order.size }}</div>
+      <div>Status: {{ order.status }}</div>
+      <div>User: {{ order.user }}</div>
+    </div>
+  </div>
+</div>
+</template>
 
 <style scoped>
 
