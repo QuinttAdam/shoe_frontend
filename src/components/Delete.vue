@@ -31,11 +31,9 @@ const deleteOrder = async () => {
 </script>
   
 <template>
-    <div class="flex items-center justify-center mt-4">
-      <button @click="deleteOrder" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-        Delete Order
-      </button>
-    </div>
+    <button @click="deleteOrder" class="border-2 border-red-500 bg-red-100 hover:bg-red-400 text-black font-bold py-2 px-4 rounded">
+      Delete Order
+    </button>
   </template>
 
 <style scoped>
