@@ -1,6 +1,7 @@
 <script setup>
 import Details from '../components/Details.vue';
 import DeleteOrder from '../components/Delete.vue';
+import Status from '../components/Status.vue';
 
 import { ref, onMounted } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
@@ -42,7 +43,10 @@ const checkAdmin=()=>{
 <template>
     <div class="m-10">
         <Details />
-        <DeleteOrder />
+        <div class="flex items-center justify-center mt-4 gap-4">
+          <DeleteOrder />
+          <Status />
+        </div>
     </div>
  
 </template>
