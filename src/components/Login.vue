@@ -3,6 +3,11 @@
 <script setup>
 import { ref } from 'vue';
 
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+
 const email = ref('');
 const password = ref('');
 const error = ref(null);
@@ -29,6 +34,12 @@ const login = async () => {
     if (result.status==='success') {
       // Handle successful login, e.g., show a success message or redirect to another screen
       console.log('Login successful!');
+      // Save the JWT token in the local storage
+      localStorage.setItem('token', result.data.token);
+      // console.log(result.data.token);
+      // Redirect to the orders page
+      router.push('/orders');
+
     } else {
       // Handle authentication error
       console.log(result.message);

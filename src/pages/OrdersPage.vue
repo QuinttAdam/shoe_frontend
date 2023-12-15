@@ -1,9 +1,15 @@
 <script setup>
 import Orders from '../components/Orders.vue';
 import { ref, onMounted } from 'vue';
+import { RouterLink, useRouter } from 'vue-router';
+import { jwtDecode } from "jwt-decode";
+
+
+const router = useRouter();
 
 // make onMounted available in the template
 onMounted(() => {
+  checkAdmin();
   getOrders();
 });
 
@@ -11,7 +17,38 @@ onMounted(() => {
 const orders = ref([]);
 const error = ref(null);
 
+//get token from local storage
+// localStorage.clear();
+const token = localStorage.getItem('token');
+console.log(token);
+
+const checkAdmin=()=>{
+  if (!token) {
+    // Redirect to the login page if the token is invalid
+    router.push('/');
+    return;
+  }
+
+  // Decode the JWT token
+  let decodedToken;
+  try {
+    decodedToken = jwtDecode(token);
+  } catch (error) {
+    console.error('Error decoding token:', error);
+    // Handle the error or redirect to the login page
+    router.push('/');
+    return;
+  }
+  console.log(decodedToken);
+  if(!decodedToken.admin){
+    router.push('/');
+    return;
+  }
+}
 const getOrders = async () => {
+  // Check if the token exists
+
+
   const apiEndpoint = 'http://localhost:3000/api/v1/shoes';
   try {
     const response = await fetch(apiEndpoint);
@@ -26,6 +63,7 @@ const getOrders = async () => {
     console.error('Error retrieving orders:', e);
     error.value = 'An error occurred while retrieving orders';
   }
+
 };
 </script>
 
