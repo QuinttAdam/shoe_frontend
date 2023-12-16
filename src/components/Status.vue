@@ -1,8 +1,13 @@
 <script setup>
-  import { ref } from "vue";
+  import { ref, onMounted } from "vue";
   import { useRoute } from "vue-router";
 
   const route = useRoute();
+  let socket = null; 
+
+  onMounted(() => {
+    socket = new WebSocket("ws://localhost:3000/primus");
+  });
 
 
   // Set a default value
@@ -29,6 +34,18 @@
       if (response.ok) {
         console.log('Status updated successfully');
 
+        let data = await response.json();
+        console.log(data.status);
+        
+        let newStatus={
+          action:"status",
+          value:data.data.status
+        }
+        console.log(data.data.status);
+        socket.send(JSON.stringify(newStatus));
+
+
+
       } else {
         console.error('Failed to update status');
       }
@@ -45,7 +62,7 @@
         @change="updateStatus"
         class="p-2 border-2 border-lime-400 rounded focus:outline-none bg-lime-100 hover:bg-lime-300 focus:border-lime-400 font-bold"
       >
-        <option value="Change status" selected disabled>Change Status</option>
+        <option value="Change status" selected disabled>Change status</option>
         <option value="Ordered">Ordered</option>
         <option value="Pending">Pending</option>
         <option value="Shipped">Shipped</option>

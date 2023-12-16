@@ -6,11 +6,24 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const id = route.params.id;
+let socket = null;
 
 
 // make onMounted available in the template
 onMounted(() => {
   getOrderById();
+  socket = new WebSocket('ws://localhost:3000/primus');
+  socket.onmessage=(e)=>{
+    console.log(e);
+
+    let newStatus=JSON.parse(e.data);
+    if(newStatus.action==="status"){
+      console.log("jaaaaaa");
+      order.value.status=newStatus.value;
+      
+    }
+
+  }
 });
 
 // make a fetch request to the API endpoint to get the order by id
