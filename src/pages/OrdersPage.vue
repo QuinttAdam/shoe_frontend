@@ -4,6 +4,8 @@ import { ref, onMounted } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
 import { jwtDecode } from "jwt-decode";
 
+let socket=null;
+
 
 const router = useRouter();
 
@@ -11,6 +13,19 @@ const router = useRouter();
 onMounted(() => {
   checkAdmin();
   getOrders();
+  socket = new WebSocket('ws://localhost:3000/primus');
+  socket.onmessage=(e)=>{
+    console.log('ululuulullu');
+    console.log(e);
+
+    let newOrder=JSON.parse(e.data);
+    console.log(newOrder);
+    if(newOrder.action==='add'){
+
+      orders.value.push(newOrder);
+    }
+
+  }
 });
 
 // make a fetch request to the API endpoint to get the orders
@@ -68,7 +83,7 @@ const getOrders = async () => {
 </script>
 
 <template>
-  <h2 class="text-lime-400 text-2xl font-bold mt-4 mb-4  p-4 text-center">Orders</h2>
+  <h2 class="text-lime-400 text-2xl font-bold mt-4 mb-4  p-4 text-center">{{ orders.length }} Orders</h2>
     <div class="w-full pl-20 p-4 flex flex-wrap">
     <div v-if="error" class="text-red-500 mb-4">{{ error }}</div>
     <RouterLink v-for="order in orders" :key="order._id" :to="`/details/${order._id}`">
