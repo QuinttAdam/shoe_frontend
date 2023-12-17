@@ -41,7 +41,7 @@ const checkAdmin=()=>{
 </script>
 
 <template>
-    <div class="m-10">
+    <div class="ml-10 mr-10 mt-28">
         <Details />
         <div class="flex items-center justify-center mt-4 gap-4">
           <DeleteOrder />

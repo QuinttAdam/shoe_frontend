@@ -87,7 +87,7 @@ const changePassword = async () => {
           <label for="newPassword" class="text-left">New Password:</label>
           <input v-model="newPassword" type="password" id="newPassword" name="newPassword" class="border border-gray-300 p-2" required />
         </div>
-        <div v-if="error" class="text-black-500 font-extrabold mb-4">{{ error }}</div>
+        <div v-if="error" class="text-black-500 font-bold mb-4">{{ error }}</div>
         <button type="submit" class="bg-lime-400 text-white px-4 py-2 rounded w-full">Change Password</button>
       </form>
   </template>
