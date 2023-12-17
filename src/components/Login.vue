@@ -65,7 +65,7 @@ const login = async () => {
         <input type="password" id="password" v-model="password" required class="border border-gray-300 p-2" />
       </div>
 
-      <div v-if="error" class="error">{{ error }}</div>
+      <p v-if="error" class="error font-bold">{{ error }}</p>
 
       <div class="flex justify-center">
         <button type="submit" class="bg-lime-400 text-white px-4 py-2 rounded" :style="{ width: 'calc(100% - 4px)' }">Login</button>

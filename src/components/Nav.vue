@@ -3,6 +3,7 @@
 </script>
 
 <template>
+  <div class="h-0">
     <div class="bg-lime-400 w-full h-4">
 
     </div>
@@ -17,6 +18,7 @@
       <RouterLink to="/orders" class="nav-link font-extrabold">Orders</RouterLink>
       <RouterLink to="/change-password" class="nav-link font-extrabold">Password</RouterLink>
     </div>
+  </div>
   </div>
 </template>
 
