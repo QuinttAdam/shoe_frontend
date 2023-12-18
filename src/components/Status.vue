@@ -9,6 +9,7 @@
     socket = new WebSocket("ws://localhost:3000/primus");
   });
 
+  const token = localStorage.getItem("token"); 
 
   // Set a default value
   const selectedStatus = ref("Change status");
@@ -24,6 +25,7 @@
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           status: selectedStatus.value,

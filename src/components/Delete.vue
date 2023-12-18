@@ -8,6 +8,8 @@ const route = useRoute();
 const router = useRouter();
 const error = ref(null);
 
+const token = localStorage.getItem('token');
+
 const deleteOrder = async () => {
   const apiEndpoint = 'http://localhost:3000/api/v1/shoes';
   const id = route.params.id;
@@ -15,6 +17,10 @@ const deleteOrder = async () => {
   try {
     const response = await fetch(`${apiEndpoint}/${id}`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
+      },
     });
     const result = await response.json();
     console.log(result);

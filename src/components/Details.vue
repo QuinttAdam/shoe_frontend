@@ -8,6 +8,7 @@ const route = useRoute();
 const id = route.params.id;
 let socket = null;
 
+const token = localStorage.getItem('token');
 
 // make onMounted available in the template
 onMounted(() => {
@@ -35,7 +36,13 @@ const getOrderById = async () => {
   
     const apiEndpoint = `http://localhost:3000/api/v1/shoes/${id}`;
     try {
-        const response = await fetch(apiEndpoint);
+        const response = await fetch(apiEndpoint, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`,
+          },
+        });
         const result = await response.json();
         console.log(result);
         if (result.status === 'success') {
