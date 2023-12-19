@@ -6,7 +6,7 @@
   let socket = null; 
 
   onMounted(() => {
-    socket = new WebSocket("wss//shoe-backend-517m.onrender.com/primus");
+    socket = new WebSocket("wss://shoe-backend-517m.onrender.com/primus");
   });
 
   const token = localStorage.getItem("token"); 
