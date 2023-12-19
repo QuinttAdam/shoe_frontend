@@ -1,6 +1,6 @@
 <script setup>
 import Login from '../components/Login.vue';
-import Logout from '../components/Logout.vue';
+import Logout from '../components/LogOut.vue';
 </script>
 
 <template>
