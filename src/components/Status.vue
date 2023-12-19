@@ -6,7 +6,7 @@
   let socket = null; 
 
   onMounted(() => {
-    socket = new WebSocket("ws://localhost:3000/primus");
+    socket = new WebSocket("wss//shoe-backend-517m.onrender.com/primus");
   });
 
   const token = localStorage.getItem("token"); 
@@ -21,7 +21,7 @@
         const id = route.params.id;
 
       // Make a PATCH request to your API to update the status
-      const response = await fetch(`http://localhost:3000/api/v1/shoes/${id}`, {
+      const response = await fetch(`https://shoe-backend-517m.onrender.com/api/v1/shoes/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

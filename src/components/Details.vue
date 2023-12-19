@@ -13,7 +13,7 @@ const token = localStorage.getItem('token');
 // make onMounted available in the template
 onMounted(() => {
   getOrderById();
-  socket = new WebSocket('ws://localhost:3000/primus');
+  socket = new WebSocket('wss://shoe-backend-517m.onrender.com/primus');
   socket.onmessage=(e)=>{
     console.log(e);
 
@@ -34,7 +34,7 @@ const error = ref(null);
 const getOrderById = async () => {
     
   
-    const apiEndpoint = `http://localhost:3000/api/v1/shoes/${id}`;
+    const apiEndpoint = `https://shoe-backend-517m.onrender.com/api/v1/shoes/${id}`;
     try {
         const response = await fetch(apiEndpoint, {
           method: 'GET',

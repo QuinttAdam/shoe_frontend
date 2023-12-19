@@ -12,7 +12,7 @@ const router = useRouter();
 onMounted(() => {
   checkAdmin();
   getOrders();
-  socket = new WebSocket("ws://localhost:3000/primus");
+  socket = new WebSocket("wss://shoe-backend-517m.onrender.com/primus");
   socket.onmessage = (e) => {
     console.log("ululuulullu");
     console.log(e);
@@ -60,7 +60,7 @@ const checkAdmin = () => {
 const getOrders = async () => {
   // Check if the token exists
 
-  const apiEndpoint = "http://localhost:3000/api/v1/shoes";
+  const apiEndpoint = "https://shoe-backend-517m.onrender.com/api/v1/shoes";
   try {
     const response = await fetch(apiEndpoint, {
       method: "GET",

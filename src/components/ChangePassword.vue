@@ -42,7 +42,7 @@ const checkAdmin = () => {
 const changePassword = async () => {
   let id = decodedToken.id;
   console.log(id);
-  const apiEndpoint = `http://localhost:3000/api/v1/users/${id}`; // Replace with your API endpoint
+  const apiEndpoint = `https://shoe-backend-517m.onrender.com/api/v1/users/${id}`; // Replace with your API endpoint
   console.log(apiEndpoint);
 
   try {

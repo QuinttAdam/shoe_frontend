@@ -11,7 +11,7 @@ const error = ref(null);
 const token = localStorage.getItem('token');
 
 const deleteOrder = async () => {
-  const apiEndpoint = 'http://localhost:3000/api/v1/shoes';
+  const apiEndpoint = 'https://shoe-backend-517m.onrender.com/api/v1/shoes';
   const id = route.params.id;
   console.log(id);
   try {
