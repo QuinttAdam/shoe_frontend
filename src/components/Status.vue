@@ -34,16 +34,12 @@
 
       // Handle the response as needed
       if (response.ok) {
-        console.log('Status updated successfully');
-
         let data = await response.json();
-        console.log(data.status);
         
         let newStatus={
           action:"status",
           value:data.data.status
         }
-        console.log(data.data.status);
         socket.send(JSON.stringify(newStatus));
 
 

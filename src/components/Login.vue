@@ -26,23 +26,18 @@ const login = async () => {
       body: JSON.stringify({ email: email.value, password: password.value }),
       
     });
-    console.log(email.value, password.value);
     // Assuming the API returns a JSON object with a 'success' property
     const result = await response.json();
-    console.log(result);
 
     if (result.status==='success') {
       // Handle successful login, e.g., show a success message or redirect to another screen
-      console.log('Login successful!');
       // Save the JWT token in the local storage
       localStorage.setItem('token', result.data.token);
-      // console.log(result.data.token);
       // Redirect to the orders page
       router.push('/orders');
 
     } else {
       // Handle authentication error
-      console.log(result.message);
       error.value = 'Invalid email or password';
     }
   } catch (e) {

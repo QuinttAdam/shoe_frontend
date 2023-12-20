@@ -14,11 +14,7 @@ onMounted(() => {
   getOrders();
   socket = new WebSocket("wss://shoe-backend-517m.onrender.com/primus");
   socket.onmessage = (e) => {
-    console.log("ululuulullu");
-    console.log(e);
-
     let newOrder = JSON.parse(e.data);
-    console.log(newOrder);
     if (newOrder.action === "add") {
       orders.value.push(newOrder);
     }
@@ -32,7 +28,6 @@ const error = ref(null);
 //get token from local storage
 // localStorage.clear();
 const token = localStorage.getItem("token");
-console.log(token);
 
 const checkAdmin = () => {
   if (!token) {
@@ -51,7 +46,6 @@ const checkAdmin = () => {
     router.push("/");
     return;
   }
-  console.log(decodedToken);
   if (!decodedToken.admin) {
     router.push("/");
     return;
@@ -70,7 +64,6 @@ const getOrders = async () => {
       },
     });
     const result = await response.json();
-    console.log(result);
     if (result.status === "success") {
       orders.value = result.data;
     } else {

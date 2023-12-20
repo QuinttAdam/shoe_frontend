@@ -15,13 +15,10 @@ onMounted(() => {
   getOrderById();
   socket = new WebSocket('wss://shoe-backend-517m.onrender.com/primus');
   socket.onmessage=(e)=>{
-    console.log(e);
 
     let newStatus=JSON.parse(e.data);
     if(newStatus.action==="status"){
-      console.log("jaaaaaa");
       order.value.status=newStatus.value;
-      
     }
 
   }
@@ -44,7 +41,6 @@ const getOrderById = async () => {
           },
         });
         const result = await response.json();
-        console.log(result);
         if (result.status === 'success') {
         order.value = result.data;
         } else {

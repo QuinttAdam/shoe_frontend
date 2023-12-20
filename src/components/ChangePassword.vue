@@ -32,7 +32,6 @@ const checkAdmin = () => {
     router.push("/");
     return;
   }
-  console.log(decodedToken);
   if (!decodedToken.admin) {
     router.push("/");
     return;
@@ -41,9 +40,7 @@ const checkAdmin = () => {
 
 const changePassword = async () => {
   let id = decodedToken.id;
-  console.log(id);
   const apiEndpoint = `https://shoe-backend-517m.onrender.com/api/v1/users/${id}`; // Replace with your API endpoint
-  console.log(apiEndpoint);
 
   try {
     const response = await fetch(apiEndpoint, {
@@ -59,11 +56,9 @@ const changePassword = async () => {
     });
 
     const result = await response.json();
-    console.log(result);
 
     if (result.status === "success") {
       // Password changed successfully
-      console.log("Password changed successfully");
       error.value = result.message || "Password changed successfully";
     } else {
       error.value = result.message || "Error changing password";

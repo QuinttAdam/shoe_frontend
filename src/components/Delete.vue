@@ -13,7 +13,6 @@ const token = localStorage.getItem('token');
 const deleteOrder = async () => {
   const apiEndpoint = 'https://shoe-backend-517m.onrender.com/api/v1/shoes';
   const id = route.params.id;
-  console.log(id);
   try {
     const response = await fetch(`${apiEndpoint}/${id}`, {
       method: 'DELETE',
@@ -23,7 +22,6 @@ const deleteOrder = async () => {
       },
     });
     const result = await response.json();
-    console.log(result);
     if (result.status === 'success') {
       router.push('/orders');
     } else {

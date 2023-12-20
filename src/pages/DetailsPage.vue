@@ -31,7 +31,6 @@ const checkAdmin=()=>{
     router.push('/');
     return;
   }
-  console.log(decodedToken);
   if(!decodedToken.admin){
     router.push('/');
     return;
